@@ -1,22 +1,42 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './reset.css';
+import './app.css';
+
 
 class App extends React.Component {
   constructor(){
     super(),
     this.state = { 
       todos:[
+        
         {
-          task: 'Organize Garage',
-          id: 1528817077286,
+          task: 'Learn React',
+          id: 1528817084351,
           completed: false
         },
         {
-          task: 'Bake Cookies',
-          id: 1528817084358,
+          task: 'Learn Redux',
+          id: 1528417084358,
+          completed: false
+        },
+        {
+          task: 'Learn Node',
+          id: 1528818084358,
+          completed: false
+        },
+        {
+          task: 'Learn Express',
+          id: 1529818084358,
+          completed: false
+        },
+        {
+          task: 'Learn SQL',
+          id: 1528813084358,
           completed: false
         }
+
       ],  
       textValue: "",
       myTaskName: ""
@@ -38,7 +58,7 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="wrapper">
         <TodoList myTaskName={this.state.myTaskName} todos={this.state.todos} />
         <TodoForm 
           addToDoHandler={this.addToDoHandler}
