@@ -3,12 +3,10 @@ import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   constructor(){
     super(),
-    this.state = { todos:[
+    this.state = { 
+      todos:[
         {
           task: 'Organize Garage',
           id: 1528817077286,
@@ -19,13 +17,33 @@ class App extends React.Component {
           id: 1528817084358,
           completed: false
         }
-      ]};
+      ],  
+      textValue: "",
+      myTaskName: ""
+    };
 }
+  changeHandler = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  addToDoHandler = event => {
+    event.preventDefault();
+    this.setState({
+      todos : [...this.state.todos, 
+        { task: this.state.myTaskName, 
+          id: Date.now(), 
+          completed: false }],
+      myTaskName: ''
+    })
+  }
   render() {
     return (
       <div>
-        <TodoList todos={this.state.todos} />
-        <TodoForm />
+        <TodoList myTaskName={this.state.myTaskName} todos={this.state.todos} />
+        <TodoForm 
+          addToDoHandler={this.addToDoHandler}
+          textValue={this.state.textValue}
+          changeHandler={this.changeHandler}/>
       </div>
     );
   }

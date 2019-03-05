@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './Todo.css';
 
 // TODO COMPONENT
 // * Receives props and stores them in state
@@ -11,21 +12,15 @@ import PropTypes from 'prop-types';
 // *            completed ( boolean )
 class Todo extends Component {
     constructor(props) {
-        super(props),
-        this.state = { 
-            task: props.todo.task,
-            id: props.todo.id,
-            completed: props.todo.completed
-
-        };
+        super(props)
     }
 
     render() {
         return (
             <div className="todo" >
-                <h2>{this.state.task}</h2>
-                <p>{this.state.id}</p>
-                <p>{this.state.completed ? 'Done' : 'Not Done'}</p>
+                <h2>{this.props.todo.task}</h2>
+                <p>{this.props.todo.id}</p>
+                <p>{this.props.todo.completed ? 'Done' : 'Not Done'}</p>
 
             </div>
         );

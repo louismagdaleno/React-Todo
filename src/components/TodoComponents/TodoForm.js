@@ -1,50 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import './Todo.css';
 
 class TodoForm extends React.Component {
     constructor(props) {
-      super(props);
-      this.state = {
-          value: '',
-          dts: '',
-          completed: false
-    };
-  
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
+      super(props); 
     }
-  
-    handleChange(event) {
-      this.setState({value: event.target.value});
-    }
-
     
-  
-    handleSubmit(event) {
-        let date =  Date.now();
 
-      this.setState({
-        value: this.state.value,
-        dts: date,
-        completed: false
-      })
-      alert(JSON.stringify(this.state));
-      event.preventDefault();
-    }
-
-    
-  
     render() {
       return (
-        <form onSubmit={this.handleSubmit}>
+        <form className="todoForm" onSubmit={this.props.addToDoHandler}>
           <h2>Add Todo</h2>
           <label>
-            Name:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
+            Title:
+            <input type="text" name="myTaskName" placeholder="What to do?" value={this.props.myTaskName} onChange={this.props.changeHandler} />
           </label>
-          <input type="submit" value="Submit" />
+          <button onClick={this.props.addNewToDo}>Add Todo</button>
+          <button>Clear Completed</button>
         </form>
       );
     }
   }
+
+// Typechecking props
+TodoForm.propTypes = {
+    addToDoHandler: PropTypes.function,
+    addNewToDo: PropTypes.function
+};
 
   export default TodoForm;
