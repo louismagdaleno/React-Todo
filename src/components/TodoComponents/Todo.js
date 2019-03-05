@@ -15,8 +15,7 @@ class Todo extends Component {
         this.state = { 
             task: props.todo.task,
             id: props.todo.id,
-            completed: props.todo.completed,
-            key: props.todo.key
+            completed: props.todo.completed
 
         };
     }

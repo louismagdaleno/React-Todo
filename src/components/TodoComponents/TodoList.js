@@ -24,7 +24,7 @@ class TodoList extends Component {
         return (
             <div className="todoList">
                 <h1>Todo List</h1>
-                {this.state.todos.map( todo => (<Todo todo={todo}  key={this.state.todos.id}/>))}
+                {this.state.todos.map( todo => (<Todo todo={todo}  key={todo.id.toString()}/>))}
             </div>
         );
     }
