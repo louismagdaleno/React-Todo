@@ -3,7 +3,11 @@ import React from 'react';
 class TodoForm extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {value: ''};
+      this.state = {
+          value: '',
+          dts: '',
+          completed: false
+    };
   
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -12,11 +16,22 @@ class TodoForm extends React.Component {
     handleChange(event) {
       this.setState({value: event.target.value});
     }
+
+    
   
     handleSubmit(event) {
-      alert('A name was submitted: ' + this.state.value);
+        let date =  Date.now();
+
+      this.setState({
+        value: this.state.value,
+        dts: date,
+        completed: false
+      })
+      alert(JSON.stringify(this.state));
       event.preventDefault();
     }
+
+    
   
     render() {
       return (
