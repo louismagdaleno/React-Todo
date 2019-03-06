@@ -25,16 +25,6 @@ class App extends React.Component {
           task: 'Learn Node',
           id: 1528818084358,
           completed: false
-        },
-        {
-          task: 'Learn Express',
-          id: 1529818084358,
-          completed: false
-        },
-        {
-          task: 'Learn SQL',
-          id: 1528813084358,
-          completed: false
         }
 
       ],  
