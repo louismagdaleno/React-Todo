@@ -29,6 +29,10 @@
     
 }
 
+.todo > input[type=checkbox]:checked + label{
+   color: #00C36F;
+  }
+
 
 
 .todo:hover {
@@ -36,6 +40,7 @@
     transform: scale(1.1);
 }
 .todoList {
+    font-family: 'Raleway', sans-serif;
     margin-bottom: 20px;
     letter-spacing: .5px;
 }
@@ -43,6 +48,7 @@
 .todoList h1 {
     text-align: center;
     font-size: 3rem;
+    font-weight: 900;
     margin-bottom: 15px;
     font-family: 'Raleway', sans-serif;
 }
@@ -53,6 +59,7 @@
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
 .todoForm {
+    font-family: 'Raleway', sans-serif;
     font-family: 'Raleway', sans-serif;
     display: flex;
     flex-direction: column;
@@ -70,6 +77,7 @@
 }
 
 .todoForm h2, .todoForm input {
+    font-family: 'Raleway', sans-serif;
     width: 40%;
     height: 24px;
     margin: 0 auto;
@@ -96,6 +104,7 @@
     width: 40%;
     height: 40px;
     font-size: 1.6rem;
+    font-weight: 700;
     margin: 0 auto;
     background: #001D34;
     color: white;
@@ -103,11 +112,13 @@
     font-weight: 500;
     padding: 5px;
     letter-spacing: .5px;
+    font-family: 'Raleway', sans-serif;
 
 }
  button:hover {
     
-    background-color: #0C6EBA;
+    background-color: #00C36F;
+    color: black;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
@@ -127,3 +138,4 @@
     text-align: center; 
  }
 
+ 

@@ -23,7 +23,7 @@ class App extends React.Component {
         },
         {
           task: 'Learn Node',
-          id: 1528818084358,
+          id: 1528818034358,
           completed: true
         }
 
@@ -37,10 +37,18 @@ class App extends React.Component {
   }
 
   toggleCompleted = event => {
-    console.log(event.target);
-    this.setState({ [event.target.completed]: true})
-  }
+    // grab the object from todos that has the same task as the event target
+    let newObj = this.state.todos.filter(todo => todo.task === event.target.querySelector('h2').textContent);
+    // set the completed status of the item to opposite of current status
+    newObj[0].completed = !newObj[0].completed;
 
+    // update state with current state
+    this.setState({
+      todos : [...this.state.todos]
+    })
+    
+  }
+    
   addToDoHandler = event => {
     event.preventDefault();
     if (this.state.myTaskName === (null || undefined || '') ) {
@@ -59,13 +67,17 @@ class App extends React.Component {
 
   filterCompletedToDos = event => {
     this.setState({
-      todos : this.state.todos.filter(todo => todo.completed === false)
+      todos : this.state.todos.filter(todo => !todo.completed)
     })
   }
   render() {
     return (
       <div className="wrapper">
-        <TodoList toggleCompleted={this.toggleCompleted} myTaskName={this.state.myTaskName} todos={this.state.todos} />
+        <TodoList 
+          toggleCompleted={this.toggleCompleted} 
+          myTaskName={this.state.myTaskName} 
+          todos={this.state.todos} />
+
         <TodoForm
           filterCompletedToDos={ this.filterCompletedToDos } 
           addToDoHandler={ this.addToDoHandler }
