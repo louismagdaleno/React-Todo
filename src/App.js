@@ -7,7 +7,7 @@ import './app.css';
 
 class App extends React.Component {
   constructor(){
-    super(),
+    super()
     this.state = { 
       todos:[
         
@@ -34,6 +34,11 @@ class App extends React.Component {
 }
   changeHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
+  }
+
+  toggleCompleted = event => {
+    console.log(event.target);
+    this.setState({ [event.target.completed]: true})
   }
 
   addToDoHandler = event => {

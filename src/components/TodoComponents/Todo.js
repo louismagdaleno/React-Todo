@@ -11,17 +11,13 @@ import './Todo.css';
 // *            id ( number )
 // *            completed ( boolean )
 class Todo extends Component {
-    constructor(props) {
-        super(props)
-    }
 
     render() {
         return (
-            <div className="todo" >
+            <div className="todo" onClick={this.props.toggleCompleted}>
                 <h2>{this.props.todo.task}</h2>
-                <p>{this.props.todo.id}</p>
-                <p>{this.props.todo.completed ? 'Done' : 'Not Done'}</p>
-
+                <input type="checkbox" checked={this.props.todo.completed ? 'Checked' : ''} />
+                
             </div>
         );
     }
