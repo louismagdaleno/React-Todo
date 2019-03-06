@@ -38,13 +38,18 @@ class App extends React.Component {
 
   addToDoHandler = event => {
     event.preventDefault();
-    this.setState({
-      todos : [...this.state.todos, 
-        { task: this.state.myTaskName, 
-          id: Date.now(), 
-          completed: false }],
-      myTaskName: ''
-    })
+    if (this.state.myTaskName === (null || undefined || '') ) {
+      // do something here to let the user know they cant create an empty task
+    } else {
+      this.setState({
+        todos : [...this.state.todos, 
+          { task: this.state.myTaskName, 
+            id: Date.now(), 
+            completed: false }],
+        myTaskName: ''
+      })
+    }
+    
   }
   render() {
     return (
