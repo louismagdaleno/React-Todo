@@ -36,15 +36,23 @@ class App extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  toggleCompleted = event => {
-    // grab the object from todos that has the same task as the event target
-    let newObj = this.state.todos.filter(todo => todo.task === event.target.querySelector('h2').textContent);
-    // set the completed status of the item to opposite of current status
-    newObj[0].completed = !newObj[0].completed;
+  toggleCompleted = id => {
+    // copy the todos in current state
+    let todos = this.state.todos.slice();
 
-    // update state with current state
+    // build new array of todos and change the todo that matches passed in ID
+    todos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    })
+
+    // update state with newly altered copy of todos
     this.setState({
-      todos : [...this.state.todos]
+      todos : todos
     })
     
   }
