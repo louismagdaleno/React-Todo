@@ -8,7 +8,7 @@ class TodoForm extends React.Component {
           <h2>Add Todo</h2>
            <input type="text" name="myTaskName" placeholder="What to do?" value={this.props.myTaskName} onChange={this.props.changeHandler} />
           <button >Add Todo</button>
-          <button>Clear Completed</button>
+          <button onClick={ this.props.filterCompletedToDos }> Clear Completed</button>
         </form>
       );
     }

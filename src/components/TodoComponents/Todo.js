@@ -14,7 +14,7 @@ class Todo extends Component {
 
     render() {
         return (
-            <div className="todo" onClick={this.props.toggleCompleted}>
+            <div className="todo" task={this.props.task} onClick={this.props.toggleCompleted}>
                 <h2>{this.props.todo.task}</h2>
                 <input type="checkbox" checked={this.props.todo.completed ? 'Checked' : ''} />
                 

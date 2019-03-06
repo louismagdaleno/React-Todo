@@ -24,7 +24,7 @@ class App extends React.Component {
         {
           task: 'Learn Node',
           id: 1528818084358,
-          completed: false
+          completed: true
         }
 
       ],  
@@ -56,14 +56,21 @@ class App extends React.Component {
     }
     
   }
+
+  filterCompletedToDos = event => {
+    this.setState({
+      todos : this.state.todos.filter(todo => todo.completed === false)
+    })
+  }
   render() {
     return (
       <div className="wrapper">
-        <TodoList myTaskName={this.state.myTaskName} todos={this.state.todos} />
-        <TodoForm 
-          addToDoHandler={this.addToDoHandler}
-          textValue={this.state.textValue}
-          changeHandler={this.changeHandler}/>
+        <TodoList toggleCompleted={this.toggleCompleted} myTaskName={this.state.myTaskName} todos={this.state.todos} />
+        <TodoForm
+          filterCompletedToDos={ this.filterCompletedToDos } 
+          addToDoHandler={ this.addToDoHandler }
+          textValue={ this.state.textValue }
+          changeHandler={ this.changeHandler }/>
       </div>
     );
   }

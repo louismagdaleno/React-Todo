@@ -9,7 +9,7 @@ class TodoList extends Component {
             <div className="todoList">
                 <h1>React - Todo List</h1>
                 <hr />
-                {this.props.todos.map( todo => (<Todo todo={todo}  key={todo.id.toString()}/>))}
+                {this.props.todos.map( todo => (<Todo todo={todo}  toggleCompleted={this.props.toggleCompleted} key={todo.id.toString()}/>))}
             </div>
         );
     }
