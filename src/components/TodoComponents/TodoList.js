@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Todo from './Todo';
 import './Todo.css';
 
-class TodoList extends Component {
-    render = () => {
+const TodoList = (props) => {
+   
         return (
             <div className="todoList">
                 <h1>React - Todo List</h1>
                 <hr />
-                {this.props.todos.map( (todo,index)=> (<Todo todo={todo}  completed={todo.completed} toggleCompleted={this.props.toggleCompleted} key={todo.id.toString()}/>))}
+                {props.todos.map( (todo,index)=> (<Todo todo={todo}  completed={todo.completed} toggleCompleted={props.toggleCompleted} key={todo.id.toString()}/>))}
             </div>
         );
-    }
+    
 }
 
 TodoList.propTypes = {
