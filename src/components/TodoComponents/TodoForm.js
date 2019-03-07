@@ -1,17 +1,17 @@
 import React from 'react';
 import './Todo.css';
 
-class TodoForm extends React.Component {
-    render() {
+const TodoForm = (props) => {
+    
       return (
-        <form className="todoForm" onSubmit={this.props.addToDoHandler}>
+        <form className="todoForm" onSubmit={props.addToDoHandler}>
           <h2>Add Todo</h2>
-           <input type="text" name="myTaskName" placeholder="What to do?" value={this.props.myTaskName} onChange={this.props.changeHandler} />
+           <input type="text" name="myTaskName" placeholder="What to do?" value={props.myTaskName} onChange={props.changeHandler} />
           <button >Add Todo</button>
-          <button onClick={ this.props.filterCompletedToDos }> Clear Completed</button>
+          <button onClick={ props.filterCompletedToDos }> Clear Completed</button>
         </form>
       );
-    }
+    
   }
 
 
