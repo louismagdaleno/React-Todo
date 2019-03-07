@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './Todo.css';
 
@@ -10,18 +10,16 @@ import './Todo.css';
 // *            task ( string )
 // *            id ( number )
 // *            completed ( boolean )
-class Todo extends Component {
-
-    render() {
+const Todo = (props) => {
         return (
             <div className="todo"  
-            onClick={() => this.props.toggleCompleted(this.props.todo.id)}>
-                <h2 style={this.props.todo.completed ? { textDecoration: 'line-through', textDecorationStyle: 'solid' } : null}>{this.props.todo.task}</h2>
-                <input type="checkbox" checked={this.props.todo.completed ? 'Checked' : ''} />
+            onClick={() => props.toggleCompleted(props.todo.id)}>
+                <h2 style={props.todo.completed ? { textDecoration: 'line-through', textDecorationStyle: 'solid' } : null}>{props.todo.task}</h2>
+                <input type="checkbox" checked={props.todo.completed ? 'Checked' : ''} />
                 
             </div>
         );
-    }
+    
 }
 
 // Typechecking props
